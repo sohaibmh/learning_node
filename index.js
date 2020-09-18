@@ -1,9 +1,31 @@
 const express = require("express");
+const mongoose = require("mongoose");
+const keys = require("./config/keys");
+const cookieSession = require("cookie-session");
+const passport = require("passport");
+require("./models/User");
+require("./services/passport");
+
+// connecting mongoose with mongo
+mongoose.connect(keys.mongoURI, { useNewUrlParser: true });
+
 const app = express();
 
-app.get("/", (req, res) => {
-  res.send({ hi: "Homa Jan" });
-});
+// all these .use are middlewares, where the desired preprocessing occurs before they are sent to the route handlers
+app.use(
+  cookieSession({
+    // this is when the cookie should expire, i.e. after 30 days (it is in milliseconds)
+    maxAge: 30 * 24 * 60 * 60 * 1000,
+    // this is used to encrypt the cookie
+    keys: [keys.cookieKey],
+  })
+);
+
+// this is telling passport to make use of cookies
+app.use(passport.initialize());
+app.use(passport.session());
+
+require("./routes/authRoutes")(app);
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT);
