@@ -1,5 +1,6 @@
 // production keys
 
+// the process.env keys are set up in heroku
 module.exports = {
   googleClientID: process.env.GOOGLE_CLIENT_ID,
   googleClientSecret: process.env.GOOGLE_CLIENT_SECRET,
