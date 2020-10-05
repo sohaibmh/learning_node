@@ -1,7 +1,7 @@
 const passport = require("passport");
 const GoogleStrategy = require("passport-google-oauth20").Strategy;
-const keys = require("../config/keys");
 const mongoose = require("mongoose");
+const keys = require("../config/keys");
 
 // fetching the user model that we created in User.js file;
 // giving it one argument means we want to fetch the model, two arguments means we want to create a model
