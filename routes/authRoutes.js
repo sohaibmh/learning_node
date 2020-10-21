@@ -19,8 +19,8 @@ module.exports = (app) => {
   app.get("/api/logout", (req, res) => {
     // this expires the cookie
     req.logout();
-    // this should be undefined since the user is logged out
-    res.send(req.user);
+    // sends back the user to the home page following log out
+    res.redirect("/");
   });
 
   app.get("/api/current_user", (req, res) => {

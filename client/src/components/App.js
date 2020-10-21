@@ -3,11 +3,10 @@ import { BrowserRouter, Route } from "react-router-dom";
 import { connect } from "react-redux";
 import Header from "./Header";
 import * as actions from "../actions";
+import Landing from "./Landing";
 
 const Dashboard = () => <h2>Dashboard</h2>;
 const SurveyNew = () => <h2>SurveyNew</h2>;
-const Landing = () => <h2>Landing</h2>;
-
 class App extends Component {
   componentDidMount() {
     // this prop is coming from the connect function at the last line, because passing the actions as the second argument assigns them as props to the component
