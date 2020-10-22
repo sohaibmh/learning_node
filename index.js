@@ -25,7 +25,9 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 
+// this is importing the file which return a function, i.e. app, and we are immediately calling it
 require("./routes/authRoutes")(app);
+require("./routes/billingRoutes")(app);
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT);

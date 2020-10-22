@@ -1,6 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
+import Payments from "./Payments";
 
 const Header = (props) => {
   const renderContent = () => {
@@ -14,11 +15,15 @@ const Header = (props) => {
           </li>
         );
       default:
-        return (
-          <li>
+        return [
+          <li key="1">
+            <Payments />
+          </li>,
+          <li>Credits: {this.props.auth.credits}</li>,
+          <li key="2">
             <a href="/api/logout">Logout</a>
-          </li>
-        );
+          </li>,
+        ];
     }
   };
 
@@ -26,11 +31,15 @@ const Header = (props) => {
 
   return (
     <nav>
-      <div class="nav-wrapper">
-        <Link to={props.auth ? "/surveys" : "/"} href="#" class="brand-logo">
+      <div className="nav-wrapper">
+        <Link
+          to={props.auth ? "/surveys" : "/"}
+          href="#"
+          className="brand-logo"
+        >
           Emaily
         </Link>
-        <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <ul id="nav-mobile" className="right hide-on-med-and-down">
           {renderContent()}
         </ul>
       </div>

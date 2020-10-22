@@ -1,8 +1,9 @@
 const passport = require("passport");
 
 module.exports = (app) => {
-  console.log("hello");
+  // these are the route handlers
 
+  // this is dealing with the get request that is made to the url
   app.get(
     "/auth/google",
     passport.authenticate("google", { scope: ["profile", "email"] })
