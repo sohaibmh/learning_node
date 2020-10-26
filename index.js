@@ -4,7 +4,9 @@ const cookieSession = require("cookie-session");
 const passport = require("passport");
 const bodyParser = require("body-parser");
 const keys = require("./config/keys");
+// we don't have to require the Recipient model in here, as that's already required in Survey as a sub-document
 require("./models/User");
+require("./models/Survey");
 require("./services/passport");
 
 // connecting mongoose with mongo
@@ -32,6 +34,7 @@ app.use(passport.session());
 // this is importing the file which returns a function, i.e. app, and we are immediately calling it
 require("./routes/authRoutes")(app);
 require("./routes/billingRoutes")(app);
+require("./routes/surveyRoutes")(app);
 
 if (process.env.NODE_ENV === "production") {
   // telling Express to serve up production assets from the build folder
