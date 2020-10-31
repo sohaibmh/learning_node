@@ -5,8 +5,8 @@ import Header from "./Header";
 import * as actions from "../actions";
 import Landing from "./Landing";
 import Dashboard from "./Dashboard";
+import SurveyNew from "./surveys/SurveyNew";
 
-const SurveyNew = () => <h2>SurveyNew</h2>;
 class App extends Component {
   componentDidMount() {
     // this prop is coming from the connect function at the last line, because passing the actions as the second argument assigns them as props to the component
