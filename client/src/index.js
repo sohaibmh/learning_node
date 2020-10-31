@@ -7,8 +7,6 @@ import { createStore, applyMiddleware } from "redux";
 // by default this imports the index.js file
 import reducers from "./reducers";
 import reduxThunk from "redux-thunk";
-import axios from "axios";
-window.axios = axios;
 
 const store = createStore(reducers, {}, applyMiddleware(reduxThunk));
 

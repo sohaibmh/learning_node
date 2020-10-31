@@ -4,8 +4,8 @@ import { connect } from "react-redux";
 import Header from "./Header";
 import * as actions from "../actions";
 import Landing from "./Landing";
+import Dashboard from "./Dashboard";
 
-const Dashboard = () => <h2>Dashboard</h2>;
 const SurveyNew = () => <h2>SurveyNew</h2>;
 class App extends Component {
   componentDidMount() {
@@ -16,7 +16,6 @@ class App extends Component {
   render() {
     return (
       <div className="container">
-        {console.log("fetctUser()", this.props.fetchUser())}
         <BrowserRouter>
           <div>
             <Header />
