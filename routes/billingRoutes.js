@@ -25,7 +25,5 @@ module.exports = (app) => {
 
     // this is sending the updated response to the browser
     res.send(user);
-
-    console.log("charge ", charge);
   });
 };

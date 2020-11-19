@@ -29,8 +29,6 @@ const Header = (props) => {
     }
   };
 
-  console.log("props", props);
-
   return (
     <nav>
       <div className="nav-wrapper">
